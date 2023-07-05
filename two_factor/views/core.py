@@ -188,6 +188,9 @@ class LoginView(RedirectURLMixin, IdempotentSessionWizardView):
                 self.request.session['next'] = self.get_success_url()
             return redirect('two_factor:setup')
 
+        else:
+            return redirect('two_factor:setup')
+        
         return response
 
     # Copied from django.conrib.auth.views.LoginView (Branch: stable/1.11.x)
